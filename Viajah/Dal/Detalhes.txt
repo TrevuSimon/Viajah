@@ -1,0 +1,4 @@
+﻿Tools –> NuGet Package Manager –> Package Manager Console
+Run the following command to create a model from the existing database:
+
+Scaffold-DbContext "Data Source=localhost\SQLEXPRESS;Initial Catalog=Suporte;Integrated Security=True"
