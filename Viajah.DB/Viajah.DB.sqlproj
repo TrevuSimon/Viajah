@@ -61,11 +61,14 @@
     <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Usario.sql" />
     <Build Include="dbo\Tables\Regiao.sql" />
-    <Build Include="dbo\Tables\RegiaoFotos.sql" />
-    <Build Include="dbo\Tables\RegiaoPontosTuristicos.sql" />
+    <Build Include="dbo\Tables\RegiaoFoto.sql" />
+    <Build Include="dbo\Tables\RegiaoPontoTuristico.sql" />
     <Build Include="dbo\Tables\RegiaoHistoria.sql" />
+    <Build Include="dbo\Tables\Usuario.sql" />
+    <Build Include="dbo\Tables\PontoTuristicoFoto.sql" />
+    <Build Include="dbo\Tables\UsuarioDetalhe.sql" />
+    <Build Include="dbo\Tables\RegiaoComentario.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Viajah.DB.refactorlog" />

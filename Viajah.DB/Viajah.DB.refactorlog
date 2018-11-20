@@ -7,4 +7,46 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="idNativo" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="b919d8aa-1503-4d91-85bc-c141028a79cd" ChangeDateTime="11/20/2018 12:58:17">
+    <Property Name="ElementName" Value="[dbo].[RegiaoPontoTuristico].[Descrição]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RegiaoPontoTuristico]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Descricao" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="24e793ca-f87b-4e96-8144-26c871d0339f" ChangeDateTime="11/20/2018 12:59:25">
+    <Property Name="ElementName" Value="[dbo].[RegiaoPontoTuristico].[Nome]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RegiaoPontoTuristico]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdRegiao" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8969bb40-c89e-4e55-a9da-1b5118b6634c" ChangeDateTime="11/20/2018 12:59:34">
+    <Property Name="ElementName" Value="[dbo].[RegiaoPontoTuristico].[Fot]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RegiaoPontoTuristico]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Foto" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3ad8d8d4-f6ed-4f25-a858-c4820b8224c3" ChangeDateTime="11/20/2018 13:00:24">
+    <Property Name="ElementName" Value="[dbo].[PontoTuristicoFoto].[Nome]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PontoTuristicoFoto]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdPontoTuristico" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5b8f81cb-7442-48be-b8b7-662a74e2cc65" ChangeDateTime="11/20/2018 13:01:11">
+    <Property Name="ElementName" Value="[dbo].[RegiaoFoto].[Foto]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RegiaoFoto]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdRegiao" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="57fceb7f-01d3-4040-8a54-208fce01847c" ChangeDateTime="11/20/2018 13:01:16">
+    <Property Name="ElementName" Value="[dbo].[RegiaoFoto].[IdRegiao]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RegiaoFoto]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Foto" />
+  </Operation>
 </Operations>
