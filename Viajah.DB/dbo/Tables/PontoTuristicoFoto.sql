@@ -4,5 +4,6 @@
     [IdPontoTuristico] INT NULL, 
     [Nome] VARCHAR(MAX) NULL, 
     [Foto] VARCHAR(MAX) NULL, 
-    [Descricao] VARCHAR(MAX) NULL
+    [Descricao] VARCHAR(MAX) NULL, 
+    CONSTRAINT [FKPontoTuristicoFotoRegiaoPontoTuristico] FOREIGN KEY (IdPontoTuristico) REFERENCES [RegiaoPontoTuristico]([Id])
 )

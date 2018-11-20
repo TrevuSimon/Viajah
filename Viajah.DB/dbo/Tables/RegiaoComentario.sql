@@ -4,5 +4,7 @@
     [IdUsuario] INT NULL, 
     [IdRegiao] INT NULL, 
     [Comentario] NVARCHAR(MAX) NULL, 
-    [Data] DATETIME NULL
+    [Data] DATETIME NULL, 
+    CONSTRAINT [FKRegiaoComentarioUsuario] FOREIGN KEY (Id) REFERENCES Usuario(Id), 
+    CONSTRAINT [FKRegiaoComentarioRegiao] FOREIGN KEY (Id) REFERENCES Regiao(Id)
 )

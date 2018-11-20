@@ -3,5 +3,6 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [IdRegiao] INT NULL, 
     [Foto] IMAGE NULL, 
-    [Descricao] VARCHAR(MAX) NULL
+    [Descricao] VARCHAR(MAX) NULL,
+	CONSTRAINT [FKRegiaoFotoRegiao] FOREIGN KEY (Id) REFERENCES Regiao(Id)
 )

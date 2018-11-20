@@ -2,6 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [IdRegiao] INT NULL, 
-    [Descricao] VARCHAR(MAX) NULL 
+    [Descricao] VARCHAR(MAX) NULL, 
+    CONSTRAINT [FKRegiaoPontoTuristicoRegiao] FOREIGN KEY (Id) REFERENCES Regiao(Id)
 
 )
