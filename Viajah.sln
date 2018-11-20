@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viajah", "Viajah\Viajah.csproj", "{6E838904-7EAE-41EB-8946-D38FF6B4518D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Viajah", "Viajah\Viajah.csproj", "{6E838904-7EAE-41EB-8946-D38FF6B4518D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viajah.Test", "Viajah.Test\Viajah.Test.csproj", "{68A870FA-333A-4130-8B47-8876D250FDCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Viajah.Test", "Viajah.Test\Viajah.Test.csproj", "{68A870FA-333A-4130-8B47-8876D250FDCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viajah.Logic", "Viajah.Logic\Viajah.Logic.csproj", "{1DF7E308-096E-4709-ACC9-DCCC8AD249E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Viajah.Logic", "Viajah.Logic\Viajah.Logic.csproj", "{1DF7E308-096E-4709-ACC9-DCCC8AD249E9}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Viajah.DB", "Viajah.DB\Viajah.DB.sqlproj", "{EE90AC56-5CEA-4612-A4BB-D34F01E1F913}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Viajah.DB", "Viajah.DB\Viajah.DB.sqlproj", "{F879FDD5-C289-439B-A0AE-29F010AA0BCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +29,12 @@ Global
 		{1DF7E308-096E-4709-ACC9-DCCC8AD249E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DF7E308-096E-4709-ACC9-DCCC8AD249E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DF7E308-096E-4709-ACC9-DCCC8AD249E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE90AC56-5CEA-4612-A4BB-D34F01E1F913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE90AC56-5CEA-4612-A4BB-D34F01E1F913}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE90AC56-5CEA-4612-A4BB-D34F01E1F913}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{EE90AC56-5CEA-4612-A4BB-D34F01E1F913}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE90AC56-5CEA-4612-A4BB-D34F01E1F913}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE90AC56-5CEA-4612-A4BB-D34F01E1F913}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F879FDD5-C289-439B-A0AE-29F010AA0BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F879FDD5-C289-439B-A0AE-29F010AA0BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F879FDD5-C289-439B-A0AE-29F010AA0BCC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F879FDD5-C289-439B-A0AE-29F010AA0BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F879FDD5-C289-439B-A0AE-29F010AA0BCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F879FDD5-C289-439B-A0AE-29F010AA0BCC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
