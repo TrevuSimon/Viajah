@@ -4,15 +4,23 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Viajah.Models;
 
 namespace Viajah.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ViajahContext _context;
+
+        public HomeController(ViajahContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Regiao.ToListAsync());
         }
 
         public IActionResult About()
