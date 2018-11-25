@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Viajah.Models;
+using Viajah.Services;
 
 namespace Viajah.Controllers
 {
@@ -147,6 +149,30 @@ namespace Viajah.Controllers
         private bool UsuarioExists(int id)
         {
             return _context.Usuario.Any(e => e.Id == id);
+        }
+
+        public  IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(Usuario usuario)
+        {
+            Usuario login = _context.Usuario.Where(u => u.Login == usuario.Login && u.Senha == usuario.Senha).FirstOrDefault();
+
+            if(login != null)
+            {
+                HttpContext.Session.SetObject("Usuario", login);
+
+                if (login.Moderador.Value)
+                {
+                    HttpContext.Session.SetObject("Usuario.Moderador", login.Moderador.ToString());
+                }
+            }
+
+            return View();
         }
     }
 }

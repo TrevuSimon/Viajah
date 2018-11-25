@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Viajah.Models;
 
 namespace Viajah
@@ -32,9 +34,19 @@ namespace Viajah
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddScoped<ViajahContext>();
+#if DEBUG
+            services.AddDbContext<ViajahContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ViajahDBDebug")));
+#else
+            services.AddDbContext<ViajahContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ViajahDBProd")));
+#endif
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSession();
+
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddSessionStateTempDataProvider();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +65,7 @@ namespace Viajah
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
