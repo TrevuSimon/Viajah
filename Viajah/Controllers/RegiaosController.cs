@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -57,9 +58,11 @@ namespace Viajah.Controllers
         {
             if (ModelState.IsValid)
             {
+                bool eModerador = Convert.ToBoolean(HttpContext.Session.GetString("Usuario.Moderador"));
+                regiao.Aprovada = (eModerador)?true:false;
                 _context.Add(regiao);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Home");
             }
             return View(regiao);
         }
@@ -85,7 +88,7 @@ namespace Viajah.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Descricao,Cidade,Pais")] Regiao regiao)
+        public async Task<IActionResult> Edit(int id, Regiao regiao)
         {
             if (id != regiao.Id)
             {
