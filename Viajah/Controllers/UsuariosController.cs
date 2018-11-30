@@ -59,9 +59,11 @@ namespace Viajah.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuario.DataCadastro = DateTime.UtcNow;
+                usuario.Moderador = false;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Login));
             }
             return View(usuario);
         }
@@ -168,7 +170,7 @@ namespace Viajah.Controllers
 
                 if (login.Moderador.Value)
                 {
-                    HttpContext.Session.SetObject("Usuario.Moderador", login.Moderador.ToString());
+                    HttpContext.Session.SetString("Usuario.Moderador", login.Moderador.ToString());
                 }
             }
 

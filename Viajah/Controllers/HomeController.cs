@@ -18,6 +18,12 @@ namespace Viajah.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Index()
         {
             return View(await _context.Regiao.ToListAsync());

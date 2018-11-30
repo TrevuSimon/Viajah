@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Http;
+@using Viajah.Services;
 
 @inject IHttpContextAccessor HttpContextAccessor
 
@@ -31,9 +32,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About" class="nav-link">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a></li>
                     @if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario.Moderador"))
                     {
                         <li><a asp-area="" asp-controller="Usuarios" asp-action="Index" class="nav-link">Usuarios</a></li>
@@ -45,6 +43,15 @@
                     @if (null == HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
                     {
                         <li><a asp-area="" asp-controller="Usuarios" asp-action="Login" class="nav-link">Login</a></li>
+                    }
+                    @if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
+                    {
+                        var nomeUsuairo = HttpContextAccessor.HttpContext.Session.GetObject<Usuario>("Usuario").Nome;
+                        <li class="nav-link">Usuario: @nomeUsuairo</li>
+                    }
+                    @if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
+                    {
+                        <li class="nav-link"><a asp-controller="Home" asp-action="Logout">Log out</a></li>
                     }
                 </ul>
             </div>
