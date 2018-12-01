@@ -1,0 +1,66 @@
+﻿@model Viajah.Models.RegiaoHistoria
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RegiaoHistoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExperienciasBoas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExperienciasBoas)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExperienciasRuin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExperienciasRuin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Conclusao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Conclusao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Indicacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Indicacao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPostagem)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataPostagem)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRegiao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdRegiao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRegiaoNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdRegiaoNavigation.Cidade)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

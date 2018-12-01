@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Viajah.Models;
+using Viajah.Services;
 
 namespace Viajah.Controllers
 {
@@ -34,6 +35,8 @@ namespace Viajah.Controllers
             }
 
             var regiao = await _context.Regiao
+                .Include(a => a.RegiaoHistoria)
+                    .ThenInclude(a => a.IdUsuarioNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (regiao == null)
             {

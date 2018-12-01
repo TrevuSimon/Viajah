@@ -36,5 +36,6 @@ namespace Viajah.Models
 
         public RegiaoComentario RegiaoComentario { get; set; }
         public ICollection<UsuarioDetalhe> UsuarioDetalhe { get; set; }
+        public ICollection<RegiaoHistoria> RegiaoHistoria { get; set; }
     }
 }

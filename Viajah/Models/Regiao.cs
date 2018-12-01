@@ -29,7 +29,7 @@ namespace Viajah.Models
 
         public RegiaoComentario RegiaoComentario { get; set; }
         public RegiaoFoto RegiaoFoto { get; set; }
-        public RegiaoHistoria RegiaoHistoria { get; set; }
+        public ICollection<RegiaoHistoria> RegiaoHistoria { get; set; }
         public RegiaoPontoTuristico RegiaoPontoTuristico { get; set; }
         public ICollection<UsuarioDetalhe> UsuarioDetalhe { get; set; }
     }

@@ -8,5 +8,7 @@
     [Indicacao] NVARCHAR(MAX) NULL, 
     [DataPostagem] DATETIME NULL, 
     [IdRegiao] INT NULL,
-	CONSTRAINT [FKRegiaoHistoriaRegiao] FOREIGN KEY (Id) REFERENCES Regiao(Id)
+	[IdUsuario] INT NULL,
+	CONSTRAINT [FKRegiaoHistoriaRegiao] FOREIGN KEY (IdRegiao) REFERENCES Regiao(Id), 
+    CONSTRAINT [FKRegiaoHistoriaUsuario] FOREIGN KEY ([IdUsuario]) REFERENCES Usuario(Id)
 )

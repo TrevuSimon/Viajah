@@ -1,4 +1,9 @@
-﻿@model Viajah.Models.Regiao
+﻿@using Microsoft.AspNetCore.Http;
+@using Viajah.Services;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@model Viajah.Models.Regiao
 
 @{
     ViewData["Title"] = "Details";
@@ -9,24 +14,32 @@
 <div>
     <h4>Regiao</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Cidade)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cidade)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Pais)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Pais)
-        </dd>
-    </dl>
+
+    <div class="card mb-5">
+        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+        <div class="card-body">
+            <h4>@Html.DisplayNameFor(model => model.Cidade)</h4>
+            <p class="card-title">@Html.DisplayFor(model => model.Cidade)</p>
+            <h4>@Html.DisplayNameFor(model => model.Descricao)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.Descricao)</p>
+            <h4>@Html.DisplayNameFor(model => model.Pais)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.Pais)</p>
+            <a class="btn btn-secondary" asp-controller="Regiaos" asp-action="Details" asp-route-id="@Model.Id">Mais aqui &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+        </div>
+    </div>
+
+    <h2>Histórias</h2>
+    @if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
+    {
+        <p>
+            <a asp-controller="RegiaoHistorias" asp-action="Create" asp-route-id="@Model.Id">Criar nova</a>
+        </p>
+    }
+
+    @await Html.PartialAsync("_PartialListarRegiaoHistoria", Model.RegiaoHistoria)
+
+
+
 </div>

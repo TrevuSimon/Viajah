@@ -89,11 +89,15 @@ namespace Viajah.Models
 
                 entity.Property(e => e.DataPostagem).HasColumnType("datetime");
 
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.RegiaoHistoria)
-                    .HasForeignKey<RegiaoHistoria>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                entity.HasOne(d => d.IdRegiaoNavigation)
+                    .WithMany(p => p.RegiaoHistoria)
+                    .HasForeignKey(d => d.IdRegiao)
                     .HasConstraintName("FKRegiaoHistoriaRegiao");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.RegiaoHistoria)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("FKRegiaoHistoriaUsuario");
             });
 
             modelBuilder.Entity<RegiaoPontoTuristico>(entity =>

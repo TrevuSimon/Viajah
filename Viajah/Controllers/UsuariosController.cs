@@ -51,8 +51,6 @@ namespace Viajah.Controllers
         }
 
         // POST: Usuarios/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Login,Senha,Nome,Email,DataCadastro,Moderador")] Usuario usuario)
@@ -65,7 +63,7 @@ namespace Viajah.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Login));
             }
-            return View(usuario);
+            return RedirectToAction("Index","Home");
         }
 
         // GET: Usuarios/Edit/5

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Viajah.Models.RegiaoHistoria>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5>Usuario: @Html.DisplayFor(model => item.IdUsuarioNavigation.Nome)</h5>
+
+            <h5> @Html.DisplayNameFor(model => model.Descricao)</h5>
+            <p class="card-title">@Html.DisplayFor(model => item.Descricao)</p>
+
+            <h5> @Html.DisplayNameFor(model => model.ExperienciasBoas)</h5>
+            <p class="card-title">@Html.DisplayFor(model => item.ExperienciasBoas)</p>
+
+            <h5> @Html.DisplayNameFor(model => model.ExperienciasRuin)</h5>
+            <p class="card-title">@Html.DisplayFor(model => item.ExperienciasRuin)</p>
+
+            <h5> @Html.DisplayNameFor(model => model.Conclusao)</h5>
+            <p class="card-title">@Html.DisplayFor(model => item.Conclusao)</p>
+
+            <h5> @Html.DisplayNameFor(model => model.Indicacao)</h5>
+            <p class="card-title">@Html.DisplayFor(model => item.Indicacao)</p>
+
+            <h5> @Html.DisplayNameFor(model => model.Descricao)</h5>
+            <p class="card-title">@Html.DisplayFor(model => item.Descricao)</p>
+        </div>
+        <div class="card-footer text-muted">
+            @Html.DisplayNameFor(model => model.DataPostagem): @Html.DisplayFor(model => item.DataPostagem)
+        </div>
+    </div>
+}
+
