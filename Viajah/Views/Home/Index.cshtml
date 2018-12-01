@@ -6,50 +6,64 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<div class="row">
+    <div class="col-md-8">
+        <!-- Blog Entries Column -->
+        <h1 class="my-4">
+            Viajah
+            <small>Locais para você viajar</small>
+        </h1>
 
-<!-- Blog Entries Column -->
-<h1 class="my-4">
-    Viajah
-    <small>Locais para você viajar</small>
-</h1>
+        <!-- Search Widget -->
+        <div class="card my-4">
+            <h5 class="card-header">Buscar</h5>
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Post -->
+        @foreach (var item in Model)
+        {
+            if (item.Aprovada.Value)
+            {
+                <div class="card mb-4">
+                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title">@Html.DisplayFor(modelItem => item.Cidade)</h2>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
+                        <a class="btn btn-secondary" asp-controller="Regiaos" asp-action="Details" asp-route-id="@item.Id">Mais aqui &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                    </div>
+                </div>
+            }
+        }
 
-<!-- Search Widget -->
-<div class="card my-4">
-    <h5 class="card-header">Buscar</h5>
-    <div class="card-body">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
+        @if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
+        {
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2>Regiao que você procura não esta aqui?</h2>
+                    <p>Sem problemas clique em cadastrar para adicionar</p>
+                </div>
+                <a class="btn btn-secondary" asp-controller="Regiaos" asp-action="Create">Criar</a>
+            </div>
+        }
+
+    </div>
+    <div class="col-md-4">
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+            <h5 class="card-header">Anuncios</h5>
+            <div class="card-body">
+                Anuncie aqui!
+            </div>
         </div>
     </div>
 </div>
-<!-- Blog Post -->
-@foreach (var item in Model)
-{
-    if (item.Aprovada.Value)
-    {
-    <div class="card mb-4">
-        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-        <div class="card-body">
-            <h2 class="card-title">@Html.DisplayFor(modelItem => item.Cidade)</h2>
-            <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
-            <a class="btn btn-secondary" asp-controller="Regiaos" asp-action="Details" asp-route-id="@item.Id">Mais aqui &rarr;</a>
-        </div>
-        <div class="card-footer text-muted">
-        </div>
-    </div>
-    }
-}
-
-@if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
-{
-    <div class="card mb-4">
-        <div class="card-body">
-            <h2>Regiao que você procura não esta aqui?</h2>
-            <p>Sem problemas clique em cadastrar para adicionar</p>
-        </div>
-        <a class="btn btn-secondary" asp-controller="Regiaos" asp-action="Create">Criar</a>
-    </div>
-}

@@ -10,36 +10,46 @@
 }
 
 <h2>Details</h2>
+<div class="row">
+    <div class="col-md-8">
+        <h4>Regiao</h4>
+        <hr />
 
-<div>
-    <h4>Regiao</h4>
-    <hr />
-
-    <div class="card mb-5">
-        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-        <div class="card-body">
-            <h4>@Html.DisplayNameFor(model => model.Cidade)</h4>
-            <p class="card-title">@Html.DisplayFor(model => model.Cidade)</p>
-            <h4>@Html.DisplayNameFor(model => model.Descricao)</h4>
-            <p class="card-text">@Html.DisplayFor(model => model.Descricao)</p>
-            <h4>@Html.DisplayNameFor(model => model.Pais)</h4>
-            <p class="card-text">@Html.DisplayFor(model => model.Pais)</p>
-            <a class="btn btn-secondary" asp-controller="Regiaos" asp-action="Details" asp-route-id="@Model.Id">Mais aqui &rarr;</a>
+        <div class="card mb-5">
+            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <div class="card-body">
+                <h4>@Html.DisplayNameFor(model => model.Cidade)</h4>
+                <p class="card-title">@Html.DisplayFor(model => model.Cidade)</p>
+                <h4>@Html.DisplayNameFor(model => model.Descricao)</h4>
+                <p class="card-text">@Html.DisplayFor(model => model.Descricao)</p>
+                <h4>@Html.DisplayNameFor(model => model.Pais)</h4>
+                <p class="card-text">@Html.DisplayFor(model => model.Pais)</p>
+                <a class="btn btn-secondary" asp-controller="Regiaos" asp-action="Details" asp-route-id="@Model.Id">Mais aqui &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+            </div>
         </div>
-        <div class="card-footer text-muted">
+
+        <h2>Histórias</h2>
+        @if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
+        {
+            <p>
+                <a asp-controller="RegiaoHistorias" asp-action="Create" asp-route-id="@Model.Id">Criar nova</a>
+            </p>
+        }
+
+        @await Html.PartialAsync("_PartialListarRegiaoHistoria", Model.RegiaoHistoria)
+
+
+
+    </div>
+    <div class="col-md-4">
+        <!-- Side Widget -->
+        <div class="card my-4">
+            <h5 class="card-header">Anuncios</h5>
+            <div class="card-body">
+                Anuncie aqui!
+            </div>
         </div>
     </div>
-
-    <h2>Histórias</h2>
-    @if (null != HttpContextAccessor.HttpContext.Session.GetString("Usuario"))
-    {
-        <p>
-            <a asp-controller="RegiaoHistorias" asp-action="Create" asp-route-id="@Model.Id">Criar nova</a>
-        </p>
-    }
-
-    @await Html.PartialAsync("_PartialListarRegiaoHistoria", Model.RegiaoHistoria)
-
-
-
 </div>

@@ -172,7 +172,7 @@ namespace Viajah.Controllers
                 }
             }
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
